@@ -10,15 +10,25 @@
         body { font-family: 'Lato', sans-serif; background-color: #0d0d0d; color: #e0e0e0; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: #f0e6d6; }
         
-        /* STYLE DU LOGO */
-        .logo-container {
-            width: 150px; /* Ajuste la largeur ici selon ton envie */
-            margin: 0 auto 1.5rem auto; /* Centre le logo et met de l'espace en dessous */
+        /* HEADER PLUS FIN ET HORIZONTAL */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Espace entre le logo et le texte */
+            padding: 40px 20px;
         }
-        .logo-container img {
-            width: 100%;
+
+        .logo-mini {
+            width: 80px; /* Taille réduite pour ne pas gonfler le bandeau */
             height: auto;
             object-fit: contain;
+        }
+
+        .brand-text {
+            text-align: left;
+            border-left: 1px solid #333; /* Petite barre de séparation élégante */
+            padding-left: 20px;
         }
 
         .product-card { 
@@ -46,17 +56,25 @@
 
         .product-card:hover { border-color: #f0e6d6; }
         .product-card:hover img { transform: scale(1.05); }
+
+        /* Responsive : sur mobile on peut repasser l'un sur l'autre si c'est trop serré */
+        @media (max-width: 640px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .brand-text { border-left: none; padding-left: 0; text-align: center; }
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="py-16 text-center bg-zinc-900 border-b border-zinc-800">
-        <div class="logo-container">
-            <img src="logo.png" alt="Arveil Parfums Logo">
+    <header class="bg-zinc-900 border-b border-zinc-800">
+        <div class="header-container">
+            <img src="logo.png" alt="Logo" class="logo-mini">
+            
+            <div class="brand-text">
+                <h1 class="text-4xl md:text-5xl font-bold tracking-widest uppercase">Arveil Parfums</h1>
+                <p class="text-xs text-zinc-500 tracking-[0.3em] uppercase">Paris</p>
+            </div>
         </div>
-
-        <h1 class="text-6xl font-bold mb-2 tracking-widest uppercase">Arveil Parfums</h1>
-        <p class="text-sm text-zinc-500 tracking-[0.3em] uppercase">Paris</p>
     </header>
 
     <main class="container mx-auto px-6 py-16">
