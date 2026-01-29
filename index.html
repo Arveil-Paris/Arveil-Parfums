@@ -9,75 +9,92 @@
     <style>
         body { font-family: 'Lato', sans-serif; background-color: #0d0d0d; color: #e0e0e0; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: #f0e6d6; }
-        .product-card { background-color: #1a1a1a; border: 1px solid #333; transition: all 0.4s ease; overflow: hidden; }
-        .product-card:hover { transform: translateY(-5px); border-color: #f0e6d6; }
-        .img-container { width: 100%; height: 400px; overflow: hidden; background-color: #2c2c2c; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        
+        .product-card { 
+            background-color: #1a1a1a; 
+            border: 1px solid #333; 
+            transition: all 0.4s ease; 
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* LE CADRE PHOTO - AJUSTÉ ICI */
+        .img-container { 
+            width: 100%; 
+            aspect-ratio: 3 / 4; /* Ratio vertical type portrait de luxe */
+            overflow: hidden; 
+            background-color: #111;
+        }
+
+        .img-container img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* CA COUPE LES BORDS POUR NE PAS DÉFORMER */
+            object-position: center; /* CENTRE LE FLACON */
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover { border-color: #f0e6d6; }
         .product-card:hover img { transform: scale(1.05); }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="py-24 text-center bg-zinc-900 border-b border-zinc-800">
-        <h1 class="text-6xl font-bold mb-4 tracking-widest uppercase">Arveil Parfums</h1>
-        <p class="text-xl text-zinc-400 italic tracking-widest">Paris</p>
+    <header class="py-20 text-center bg-zinc-900 border-b border-zinc-800">
+        <h1 class="text-6xl font-bold mb-2 tracking-widest uppercase">Arveil Parfums</h1>
+        <p class="text-sm text-zinc-500 tracking-[0.3em] uppercase">Paris</p>
     </header>
 
-    <main class="container mx-auto px-6 py-20">
+    <main class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl text-center mb-16 italic font-light">Laissez-vous porter par nos fragrances</h2>
         
-        <h2 class="text-4xl font-bold text-center mb-16">Laissez-vous porter par nos fragrances</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
 
-            <div class="product-card rounded-sm">
+            <div class="product-card">
                 <div class="img-container">
-                    <img src="DolceSera.jpg">
+                    <img src="DolceSera.jpg" alt="Dolce Sera">
                 </div>
-                <div class="p-8 text-center">
-                    <h3 class="text-3xl font-bold mb-4">Dolce Sera</h3>
-                    <p class="text-zinc-500 italic leading-relaxed">"Dans le velours d'un jour qui s'éteint sans murmure, l'ambre s'endort au creux d'une ombre d'or pur."</p>
+                <div class="p-8 text-center bg-zinc-900/50">
+                    <h3 class="text-2xl font-bold mb-3">Dolce Sera</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Dans le velours d'un jour qui s'éteint sans murmure, l'ambre s'endort au creux d'une ombre d'or pur.</p>
                 </div>
             </div>
 
-            <div class="product-card rounded-sm">
+            <div class="product-card">
                 <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1594035910387-fea47734261f?auto=format&fit=crop&w=800&q=80" alt="Sweet Mahal">
+                    <img src="ton_image_2.jpg" alt="Sweet Mahal">
                 </div>
-                <div class="p-8 text-center">
-                    <h3 class="text-3xl font-bold mb-4">Sweet Mahal</h3>
-                    <p class="text-zinc-500 italic leading-relaxed">"Comme un dôme de soie où l’Orient s’éveille, son souffle est un palais où l’âme s'émerveille."</p>
+                <div class="p-8 text-center bg-zinc-900/50">
+                    <h3 class="text-2xl font-bold mb-3">Sweet Mahal</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Comme un dôme de soie où l’Orient s’éveille, son souffle est un palais où l’âme s'émerveille.</p>
                 </div>
             </div>
 
-            <div class="product-card rounded-sm">
+            <div class="product-card">
                 <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80" alt="Sabah Breath">
+                    <img src="ton_image_3.jpg" alt="Sabah Breath">
                 </div>
-                <div class="p-8 text-center">
-                    <h3 class="text-3xl font-bold mb-4">Sabah Breath</h3>
-                    <p class="text-zinc-500 italic leading-relaxed">"Un vol de désir qui brûle et qui s'efface, l'éclair d'une vie qui ne laisse qu'une trace."</p>
+                <div class="p-8 text-center bg-zinc-900/50">
+                    <h3 class="text-2xl font-bold mb-3">Sabah Breath</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Un vol de désir qui brûle et qui s'efface, l'éclair d'une vie qui ne laisse qu'une trace.</p>
                 </div>
             </div>
 
-            <div class="product-card rounded-sm">
+            <div class="product-card">
                 <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1583445013765-48c2201c86d1?auto=format&fit=crop&w=800&q=80" alt="Silent Oud">
+                    <img src="ton_image_4.jpg" alt="Silent Oud">
                 </div>
-                <div class="p-8 text-center">
-                    <h3 class="text-3xl font-bold mb-4">Silent Oud</h3>
-                    <p class="text-zinc-500 italic leading-relaxed">"Un empire qui passe et que nul ne retient, l'écho d'un royaume dont l'air se souvient."</p>
+                <div class="p-8 text-center bg-zinc-900/50">
+                    <h3 class="text-2xl font-bold mb-3">Silent Oud</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Un empire qui passe et que nul ne retient, l'écho d'un royaume dont l'air se souvient.</p>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <footer class="text-center py-16 border-t border-zinc-800 bg-black">
-        <p class="text-zinc-500 tracking-widest">&copy; 2026 ARVEIL PARIS</p>
-        <div class="mt-4 flex justify-center space-x-8">
-            <a href="#" class="text-xs uppercase tracking-widest hover:text-white transition">Instagram</a>
-            <a href="#" class="text-xs uppercase tracking-widest hover:text-white transition">Contact</a>
-        </div>
+    <footer class="text-center py-10 border-t border-zinc-800 opacity-40 text-xs tracking-widest uppercase">
+        <p>&copy; 2026 Arveil Paris</p>
     </footer>
 
 </body>
