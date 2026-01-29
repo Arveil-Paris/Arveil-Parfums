@@ -134,6 +134,26 @@
     <footer class="text-center py-10 border-t border-zinc-800 opacity-40 text-xs tracking-widest uppercase">
         <p>&copy; 2026 Arveil Paris</p>
     </footer>
+<div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #000000;"></div>
 
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#D4AF37" }, // Couleur Or
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5, "random": true },
+      "size": { "value": 3, "random": true },
+      "line_linked": { "enable": true, "distance": 150, "color": "#D4AF37", "opacity": 0.2, "width": 1 },
+      "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "out_mode": "out" }
+    },
+    "interactivity": {
+      "events": { "onhover": { "enable": true, "mode": "bubble" } }
+    },
+    "retina_detect": true
+  });
+</script>
 </body>
 </html>
