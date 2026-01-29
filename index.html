@@ -10,6 +10,14 @@
         body { font-family: 'Lato', sans-serif; background-color: #0d0d0d; color: #e0e0e0; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: #f0e6d6; }
         
+        /* STYLE DU LOGO */
+        .logo-img {
+            width: 120px; /* Ajuste la taille de ton logo ici */
+            height: auto;
+            margin: 0 auto 20px auto; /* Centre le logo et met de l'espace en dessous */
+            display: block;
+        }
+
         .product-card { 
             background-color: #1a1a1a; 
             border: 1px solid #333; 
@@ -18,10 +26,9 @@
             flex-direction: column;
         }
         
-        /* LE CADRE PHOTO - AJUSTÉ ICI */
         .img-container { 
             width: 100%; 
-            aspect-ratio: 3 / 4; /* Ratio vertical type portrait de luxe */
+            aspect-ratio: 3 / 4; 
             overflow: hidden; 
             background-color: #111;
         }
@@ -29,8 +36,8 @@
         .img-container img { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; /* CA COUPE LES BORDS POUR NE PAS DÉFORMER */
-            object-position: center; /* CENTRE LE FLACON */
+            object-fit: cover; 
+            object-position: center; 
             transition: transform 0.6s ease;
         }
 
@@ -40,9 +47,11 @@
 </head>
 <body class="antialiased">
 
-    <header class="py-20 text-center bg-zinc-900 border-b border-zinc-800">
-        <h1 class="text-6xl font-bold mb-2 tracking-widest uppercase">Arveil Parfums</h1>
-        <p class="text-sm text-zinc-500 tracking-[0.3em] uppercase">Paris</p>
+    <header class="py-16 text-center bg-zinc-900 border-b border-zinc-800">
+        <img src="ton_logo.png" alt="Arveil Parfums Logo" class="logo-img">
+        
+        <h1 class="text-5xl font-bold mb-2 tracking-widest uppercase">Arveil Parfums</h1>
+        <p class="text-xs text-zinc-500 tracking-[0.3em] uppercase">Paris</p>
     </header>
 
     <main class="container mx-auto px-6 py-16">
@@ -52,7 +61,7 @@
 
             <div class="product-card">
                 <div class="img-container">
-                    <img src="DolceSera.jpg" alt="Dolce Sera">
+                    <img src="ton_image_1.jpg" alt="Dolce Sera">
                 </div>
                 <div class="p-8 text-center bg-zinc-900/50">
                     <h3 class="text-2xl font-bold mb-3">Dolce Sera</h3>
@@ -62,7 +71,7 @@
 
             <div class="product-card">
                 <div class="img-container">
-                    <img src="SweetMahal.jpg" alt="Sweet Mahal">
+                    <img src="ton_image_2.jpg" alt="Sweet Mahal">
                 </div>
                 <div class="p-8 text-center bg-zinc-900/50">
                     <h3 class="text-2xl font-bold mb-3">Sweet Mahal</h3>
@@ -72,7 +81,7 @@
 
             <div class="product-card">
                 <div class="img-container">
-                    <img src="SabaBreath.jpg" alt="Saba Breath">
+                    <img src="ton_image_3.jpg" alt="Sabah Breath">
                 </div>
                 <div class="p-8 text-center bg-zinc-900/50">
                     <h3 class="text-2xl font-bold mb-3">Sabah Breath</h3>
@@ -82,7 +91,7 @@
 
             <div class="product-card">
                 <div class="img-container">
-                    <img src="SilentOud.jpg" alt="Silent Oud">
+                    <img src="ton_image_4.jpg" alt="Silent Oud">
                 </div>
                 <div class="p-8 text-center bg-zinc-900/50">
                     <h3 class="text-2xl font-bold mb-3">Silent Oud</h3>
