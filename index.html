@@ -15,28 +15,31 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px; /* Espace entre le logo et le texte */
+            gap: 20px; 
             padding: 40px 20px;
         }
 
         .logo-mini {
-            width: 120px; /* Taille réduite pour ne pas gonfler le bandeau */
+            width: 120px; 
             height: auto;
             object-fit: contain;
         }
 
         .brand-text {
             text-align: left;
-            border-left: 1px solid #333; /* Petite barre de séparation élégante */
+            border-left: 1px solid #333; 
             padding-left: 20px;
         }
 
+        /* AJUSTEMENT POUR QUE TOUTE LA CARTE SOIT UN LIEN */
         .product-card { 
             background-color: #1a1a1a; 
             border: 1px solid #333; 
             transition: all 0.4s ease; 
             display: flex;
             flex-direction: column;
+            text-decoration: none; /* Enlever le soulignement du lien */
+            color: inherit; /* Garder la couleur du texte */
         }
         
         .img-container { 
@@ -54,10 +57,9 @@
             transition: transform 0.6s ease;
         }
 
-        .product-card:hover { border-color: #f0e6d6; }
+        .product-card:hover { border-color: #f0e6d6; transform: translateY(-5px); }
         .product-card:hover img { transform: scale(1.05); }
 
-        /* Responsive : sur mobile on peut repasser l'un sur l'autre si c'est trop serré */
         @media (max-width: 640px) {
             .header-container { flex-direction: column; text-align: center; }
             .brand-text { border-left: none; padding-left: 0; text-align: center; }
@@ -82,45 +84,49 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
 
-            <div class="product-card">
+            <a href="dolce-sera.html" class="product-card">
                 <div class="img-container">
                     <img src="DolceSera.jpg" alt="Dolce Sera">
                 </div>
                 <div class="p-8 text-center bg-zinc-900/50">
                     <h3 class="text-2xl font-bold mb-3">Dolce Sera</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">Dans le velours d'un jour qui s'éteint sans murmure, l'ambre s'endort au creux d'une ombre d'or pur.</p>
+                    <p class="text-zinc-500 text-sm leading-relaxed italic">"Dans le velours d'un jour qui s'éteint sans murmure, l'ambre s'endort au creux d'une ombre d'or pur."</p>
+                    <p class="mt-4 text-xs uppercase tracking-widest text-[#f0e6d6]">Découvrir l'essence →</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card">
+            <a href="sweet-mahal.html" class="product-card">
                 <div class="img-container">
                     <img src="SweetMahal.jpg" alt="Sweet Mahal">
                 </div>
                 <div class="p-8 text-center bg-zinc-900/50">
                     <h3 class="text-2xl font-bold mb-3">Sweet Mahal</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">Comme un dôme de soie où l’Orient s’éveille, son souffle est un palais où l’âme s'émerveille.</p>
+                    <p class="text-zinc-500 text-sm leading-relaxed italic">"Comme un dôme de soie où l’Orient s’éveille, son souffle est un palais où l’âme s'émerveille."</p>
+                    <p class="mt-4 text-xs uppercase tracking-widest text-[#f0e6d6]">Découvrir l'essence →</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card">
+            <a href="sabah-breath.html" class="product-card">
                 <div class="img-container">
                     <img src="SabaBreath.jpg" alt="Saba Breath">
                 </div>
                 <div class="p-8 text-center bg-zinc-900/50">
                     <h3 class="text-2xl font-bold mb-3">Saba Breath</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">Un vol de désir qui brûle et qui s'efface, l'éclair d'une vie qui ne laisse qu'une trace.</p>
+                    <p class="text-zinc-500 text-sm leading-relaxed italic">"Un vol de désir qui brûle et qui s'efface, l'éclair d'une vie qui ne laisse qu'une trace."</p>
+                    <p class="mt-4 text-xs uppercase tracking-widest text-[#f0e6d6]">Découvrir l'essence →</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card">
+            <a href="silent-oud.html" class="product-card">
                 <div class="img-container">
                     <img src="SilentOud.jpg" alt="Silent Oud">
                 </div>
                 <div class="p-8 text-center bg-zinc-900/50">
                     <h3 class="text-2xl font-bold mb-3">Silent Oud</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">Un empire qui passe et que nul ne retient, l'écho d'un royaume dont l'air se souvient.</p>
+                    <p class="text-zinc-500 text-sm leading-relaxed italic">"Un empire qui passe et que nul ne retient, l'écho d'un royaume dont l'air se souvient."</p>
+                    <p class="mt-4 text-xs uppercase tracking-widest text-[#f0e6d6]">Découvrir l'essence →</p>
                 </div>
-            </div>
+            </a>
 
         </div>
     </main>
