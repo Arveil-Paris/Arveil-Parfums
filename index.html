@@ -4,94 +4,246 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arveil Parfums | Paris</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <style>
-        body { font-family: 'Lato', sans-serif; background-color: #0d0d0d; color: #e0e0e0; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; color: #f0e6d6; }
-        
-        /* HEADER PLUS FIN ET HORIZONTAL */
-        .header-container {
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e5e0;
+            margin: 0;
+            --gold: #c9a869;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .site-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .announcement-bar {
+            text-align: center;
+            padding: 8px 20px;
+            font-size: 10px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #a8a69d;
+            border-bottom: 0.5px solid rgba(201,168,105,0.15);
+        }
+
+        header.site-header {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 40px 28px 34px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px; 
-            padding: 40px 20px;
+            gap: 20px;
+            position: relative;
         }
 
-        .logo-mini {
-            width: 120px; 
-            height: auto;
-            object-fit: contain;
+        .brand-block { text-align: center; }
+
+        .brand-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #f2ead9;
+            margin: 0;
         }
 
-        .brand-text {
-            text-align: left;
-            border-left: 1px solid #333; 
-            padding-left: 20px;
+        .brand-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+            margin: 6px 0 0;
         }
 
-        /* AJUSTEMENT POUR QUE TOUTE LA CARTE SOIT UN LIEN */
-        .product-card { 
-            background-color: #1a1a1a; 
-            border: 1px solid #333; 
-            transition: all 0.4s ease; 
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            position: absolute;
+            right: 28px;
+        }
+
+        .header-icons i {
+            font-size: 18px;
+            color: #a8a69d;
+            transition: color 0.25s ease;
+            cursor: pointer;
+        }
+        .header-icons i:hover { color: var(--gold); }
+
+        .header-divider {
+            height: 0.5px;
+            max-width: 1080px;
+            margin: 0 auto;
+            background: linear-gradient(90deg, transparent, rgba(201,168,105,0.35) 50%, transparent);
+        }
+
+        .hero {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 72px 28px 56px;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin: 0 0 18px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 28px;
+            color: #f2ead9;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .collection {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 28px 88px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 36px;
+        }
+
+        .product-card {
+            background-color: #111;
+            border: 0.5px solid rgba(201,168,105,0.2);
             display: flex;
             flex-direction: column;
-            text-decoration: none; /* Enlever le soulignement du lien */
-            color: inherit; /* Garder la couleur du texte */
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.4s ease, transform 0.4s ease;
         }
-        
-        .img-container { 
-            width: 100%; 
-            aspect-ratio: 3 / 4; 
-            overflow: hidden; 
-            background-color: #111;
+        .product-card:hover {
+            border-color: rgba(201,168,105,0.6);
+            transform: translateY(-4px);
         }
 
-        .img-container img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            object-position: center; 
-            transition: transform 0.6s ease;
+        .img-container {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            background-color: #161616;
+        }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.7s ease;
+        }
+        .product-card:hover .img-container img { transform: scale(1.05); }
+
+        .card-body {
+            padding: 32px 28px;
+            text-align: center;
         }
 
-        .product-card:hover { border-color: #f0e6d6; transform: translateY(-5px); }
-        .product-card:hover img { transform: scale(1.05); }
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 500;
+            color: #f2ead9;
+            margin: 0 0 12px;
+        }
 
-        @media (max-width: 640px) {
-            .header-container { flex-direction: column; text-align: center; }
-            .brand-text { border-left: none; padding-left: 0; text-align: center; }
+        .card-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 13px;
+            color: #a8a69d;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .card-link {
+            margin: 18px 0 0;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            transition: letter-spacing 0.3s ease;
+        }
+        .product-card:hover .card-link { letter-spacing: 0.3em; }
+
+        footer.site-footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 0.5px solid rgba(201,168,105,0.2);
+            color: #6b6960;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 720px) {
+            .collection { grid-template-columns: 1fr; }
+            .header-icons { position: static; margin-top: 16px; }
+            header.site-header { flex-direction: column; }
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <header class="bg-zinc-900 border-b border-zinc-800">
-        <div class="header-container">
-            <img src="logo.png" alt="Logo" class="logo-mini">
-            
-            <div class="brand-text">
-                <h1 class="text-4xl md:text-5xl font-bold tracking-widest uppercase">Arveil Parfums</h1>
-                <p class="text-xs text-zinc-500 tracking-[0.3em] uppercase">Paris</p>
-            </div>
+    <div id="particles-js"></div>
+
+    <div class="site-content">
+
+        <div class="announcement-bar">
+            Livraison offerte a partir de 50&euro; d'achat
         </div>
-    </header>
 
-    <main class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl text-center mb-16 italic font-light">Laissez-vous porter par nos fragrances</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <header class="site-header">
+            <div class="brand-block">
+                <h1 class="brand-title">Arveil</h1>
+                <p class="brand-subtitle">Maison de parfum, Paris</p>
+            </div>
+            <div class="header-icons">
+                <i class="ti ti-search" aria-hidden="true"></i>
+                <i class="ti ti-user" aria-hidden="true"></i>
+                <i class="ti ti-shopping-bag" aria-hidden="true"></i>
+            </div>
+        </header>
+
+        <div class="header-divider"></div>
+
+        <div class="hero">
+            <p class="hero-eyebrow">La collection</p>
+            <h2 class="hero-title">Laissez-vous porter par nos fragrances</h2>
+        </div>
+
+        <main class="collection">
 
             <a href="dolce-sera.html" class="product-card">
                 <div class="img-container">
                     <img src="DolceSera.jpg" alt="Dolce Sera">
                 </div>
-                <div class="p-8 text-center bg-zinc-900/50">
-                    <h3 class="text-2xl font-bold mb-3">Dolce Sera</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed italic">"Dans le velours d'un jour qui s'éteint sans murmure, l'ambre s'endort au creux d'une ombre d'or pur."</p>
-                    <p class="mt-4 text-xs uppercase tracking-widest text-[#f0e6d6]">Découvrir l'essence →</p>
+                <div class="card-body">
+                    <h3 class="card-title">Dolce Sera</h3>
+                    <p class="card-quote">"Dans le velours d'un jour qui s'eteint sans murmure, l'ambre s'endort au creux d'une ombre d'or pur."</p>
+                    <p class="card-link">Decouvrir l'essence &rarr;</p>
                 </div>
             </a>
 
@@ -99,21 +251,21 @@
                 <div class="img-container">
                     <img src="SweetMahal.jpg" alt="Sweet Mahal">
                 </div>
-                <div class="p-8 text-center bg-zinc-900/50">
-                    <h3 class="text-2xl font-bold mb-3">Sweet Mahal</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed italic">"Comme un dôme de soie où l’Orient s’éveille, son souffle est un palais où l’âme s'émerveille."</p>
-                    <p class="mt-4 text-xs uppercase tracking-widest text-[#f0e6d6]">Découvrir l'essence →</p>
+                <div class="card-body">
+                    <h3 class="card-title">Sweet Mahal</h3>
+                    <p class="card-quote">"Comme un dome de soie ou l'Orient s'eveille, son souffle est un palais ou l'ame s'emerveille."</p>
+                    <p class="card-link">Decouvrir l'essence &rarr;</p>
                 </div>
             </a>
 
-            <a href="sabah-breath.html" class="product-card">
+            <a href="saba-breath.html" class="product-card">
                 <div class="img-container">
                     <img src="SabaBreath.jpg" alt="Saba Breath">
                 </div>
-                <div class="p-8 text-center bg-zinc-900/50">
-                    <h3 class="text-2xl font-bold mb-3">Saba Breath</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed italic">"Un vol de désir qui brûle et qui s'efface, l'éclair d'une vie qui ne laisse qu'une trace."</p>
-                    <p class="mt-4 text-xs uppercase tracking-widest text-[#f0e6d6]">Découvrir l'essence →</p>
+                <div class="card-body">
+                    <h3 class="card-title">Saba Breath</h3>
+                    <p class="card-quote">"Un vol de desir qui brule et qui s'efface, l'eclair d'une vie qui ne laisse qu'une trace."</p>
+                    <p class="card-link">Decouvrir l'essence &rarr;</p>
                 </div>
             </a>
 
@@ -121,39 +273,38 @@
                 <div class="img-container">
                     <img src="SilentOud.jpg" alt="Silent Oud">
                 </div>
-                <div class="p-8 text-center bg-zinc-900/50">
-                    <h3 class="text-2xl font-bold mb-3">Silent Oud</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed italic">"Un empire qui passe et que nul ne retient, l'écho d'un royaume dont l'air se souvient."</p>
-                    <p class="mt-4 text-xs uppercase tracking-widest text-[#f0e6d6]">Découvrir l'essence →</p>
+                <div class="card-body">
+                    <h3 class="card-title">Silent Oud</h3>
+                    <p class="card-quote">"Un empire qui passe et que nul ne retient, l'echo d'un royaume dont l'air se souvient."</p>
+                    <p class="card-link">Decouvrir l'essence &rarr;</p>
                 </div>
             </a>
 
-        </div>
-    </main>
+        </main>
 
-    <footer class="text-center py-10 border-t border-zinc-800 opacity-40 text-xs tracking-widest uppercase">
-        <p>&copy; 2026 Arveil Paris</p>
-    </footer>
-<div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: #000000;"></div>
+        <footer class="site-footer">
+            &copy; 2026 Arveil Paris
+        </footer>
 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    </div>
 
-<script>
-  particlesJS("particles-js", {
-    "particles": {
-      "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
-      "color": { "value": "#D4AF37" }, // Couleur Or
-      "shape": { "type": "circle" },
-      "opacity": { "value": 0.5, "random": true },
-      "size": { "value": 3, "random": true },
-      "line_linked": { "enable": true, "distance": 150, "color": "#D4AF37", "opacity": 0.2, "width": 1 },
-      "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "out_mode": "out" }
-    },
-    "interactivity": {
-      "events": { "onhover": { "enable": true, "mode": "bubble" } }
-    },
-    "retina_detect": true
-  });
-</script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#c9a869" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.4, "random": true },
+                "size": { "value": 2.5, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#c9a869", "opacity": 0.15, "width": 1 },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "out_mode": "out" }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "bubble" } }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
